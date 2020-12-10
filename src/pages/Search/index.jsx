@@ -77,8 +77,8 @@ export default class Search extends React.Component {
               {Participants &&
                 Participants.map((item) => {
                   return (
-                    <>
-                      <h4 className={styles.title} key={item}>
+                    <div key={item.MSPID}>
+                      <h4 className={styles.title}>
                         <Descriptions>
                           {Object.keys(contentHeaderModel).map((subItem) => {
                             return (
@@ -98,7 +98,7 @@ export default class Search extends React.Component {
                           );
                         })}
                       </Descriptions>
-                    </>
+                    </div>
                   );
                 })}
             </section>
