@@ -29,8 +29,8 @@ export default class Search extends React.Component {
     searchData: {},
   };
 
-  getSearch = async () => {
-    const data = await getSearch(1);
+  getSearch = async (key) => {
+    const data = await getSearch(key);
     this.setState({
       searchData: data,
     });
@@ -66,7 +66,7 @@ export default class Search extends React.Component {
               <Descriptions title="ModelID: datasets" column={2}>
                 {Object.keys(headerModel).map((item) => {
                   return (
-                    <Descriptions.Item label={headerModel[item]}>
+                    <Descriptions.Item key={item} label={headerModel[item]}>
                       {this.state.searchData[item] === true ? '是' : this.state.searchData[item]}
                     </Descriptions.Item>
                   );
@@ -78,11 +78,11 @@ export default class Search extends React.Component {
                 Participants.map((item) => {
                   return (
                     <>
-                      <h4 className={styles.title}>
+                      <h4 className={styles.title} key={item}>
                         <Descriptions>
                           {Object.keys(contentHeaderModel).map((subItem) => {
                             return (
-                              <Descriptions.Item label={contentHeaderModel[subItem]}>
+                              <Descriptions.Item key={subItem} label={contentHeaderModel[subItem]}>
                                 {item[subItem]}
                               </Descriptions.Item>
                             );
@@ -92,7 +92,7 @@ export default class Search extends React.Component {
                       <Descriptions clsssName={styles.item} column={2}>
                         {Object.keys(contentItemModel).map((subItem) => {
                           return (
-                            <Descriptions.Item label={contentItemModel[subItem]}>
+                            <Descriptions.Item key={subItem} label={contentItemModel[subItem]}>
                               {item[subItem]}
                             </Descriptions.Item>
                           );
