@@ -34,6 +34,18 @@ export default [
                 component: './Home',
               },
               {
+                path: 'local-data',
+                name: '本地模型',
+                icon: 'appstore',
+                component: './Home',
+              },
+              {
+                path: 'search',
+                name: '链上查询',
+                icon: 'search',
+                component: './Search',
+              },
+              {
                 path: '/admin',
                 name: 'admin',
                 icon: 'crown',
@@ -48,12 +60,6 @@ export default [
                     authority: ['admin'],
                   },
                 ],
-              },
-              {
-                name: 'list.table-list',
-                icon: 'table',
-                path: '/list',
-                component: './ListTableList',
               },
               {
                 component: './404',
