@@ -14,6 +14,13 @@ export default {
         '^': '',
       },
     },
+    '/abc/': {
+      target: 'http://localhost:80',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/abc': '/',
+      },
+    },
   },
   test: {
     '/api/': {

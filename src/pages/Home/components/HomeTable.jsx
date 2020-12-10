@@ -1,24 +1,25 @@
 import React from 'react';
 import { Table } from 'antd';
+import { getModel } from '@/services/home';
 
 export default class HomeTable extends React.Component {
   state = {
     a: 'xianm',
+    tableData: [],
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = async () => {
+    // const {data: {DataSets}} = await getModel()
+    const { DataSets } = await getModel();
+    this.setState({ tableData: DataSets });
   };
 
   render() {
-    const dataSource = [
-      {
-        key: '1',
-        DataSetPath: '胡彦斌',
-        MerkleTreeRootHash: 32,
-      },
-      {
-        key: '2',
-        DataSetPath: '胡彦祖',
-        MerkleTreeRootHash: 42,
-      },
-    ];
+    const dataSource = this.state.tableData;
 
     const columns = [
       {
@@ -36,7 +37,7 @@ export default class HomeTable extends React.Component {
       <div>
         {this.state.a}
         <h3>本地数据集</h3>
-        <Table dataSource={dataSource} columns={columns} />;
+        <Table dataSource={dataSource} columns={columns} rowKey="DataSetPath" />;
       </div>
     );
   }
